@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRISTERS | Event Management &amp; Design</title>
+  <meta name="description" content="TRISTERS plans corporate events, concerts, private parties and more — every detail handled.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       TRISTERS - SIMPLE EVENT WEBSITE
+       To change brand colors, edit the :root values below.
+       To change images, search for "IMG:" comments and replace
+       the src URL with your own image link.
+       ============================================================ */
+
+    :root {
+      --bg:        #F3EEE4;   /* page background */
+      --surface:   #FCF9F4;   /* card background */
+      --ink:       #221C17;   /* main text color */
+      --ink-70:    rgba(34,28,23,0.7);
+      --gold:      #C08A3E;   /* accent color */
+      --gold-dark: #96692A;
+      --gold-tint: #EADFC8;   /* tinted section background */
+      --forest:    #3B5A4C;   /* button color */
+      --forest-dark:#253C32;
+      --font-display: 'Fraunces', serif;
+      --font-body:    'Work Sans', sans-serif;
+      --radius: 6px;
+    }
+
+    /* ---------- Base ---------- */
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    img { max-width: 100%; display: block; }
+    section { padding: 5rem 0; }
+
+    .eyebrow {
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold-dark); margin-bottom: .9rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 500; font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      line-height: 1.15; margin-bottom: 1rem;
+    }
+    .section-title em { font-style: italic; color: var(--gold-dark); }
+    .section-text { color: var(--ink-70); }
+    .section-head { margin-bottom: 2.6rem; }
+
+    /* ---------- Buttons ---------- */
+    .btn-green {
+      background: var(--forest); border: 1px solid var(--forest);
+      color: #fff; padding: .8rem 1.8rem; border-radius: var(--radius);
+      font-weight: 500; transition: all .25s ease;
+    }
+    .btn-green:hover {
+      background: var(--forest-dark); border-color: var(--forest-dark); color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-outline-dark-custom {
+      background: transparent; border: 1px solid var(--ink-70);
+      color: var(--ink); padding: .8rem 1.8rem; border-radius: var(--radius);
+      font-weight: 500; transition: all .25s ease;
+    }
+    .btn-outline-dark-custom:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+    /* ---------- Navbar ---------- */
+    #mainNav { padding: 1.2rem 0; transition: all .35s ease; }
+    #mainNav.scrolled {
+      background: rgba(242,237,228,.92);
+      backdrop-filter: blur(8px);
+      padding: .8rem 0;
+      box-shadow: 0 4px 24px rgba(36,31,27,.06);
+    }
+    .navbar-brand {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 1.45rem; letter-spacing: .04em; color: var(--ink) !important;
+    }
+    .nav-link { font-size: .92rem; font-weight: 500; color: var(--ink) !important; margin: 0 .7rem; }
+    .btn-nav-cta {
+      background: var(--gold); color: #fff !important;
+      padding: .5rem 1.2rem; border-radius: var(--radius);
+      font-size: .88rem; font-weight: 500; margin-left: .5rem;
+      transition: background .25s ease;
+    }
+    .btn-nav-cta:hover { background: var(--gold-dark); }
+    .navbar-toggler { border: none; box-shadow: none !important; }
+    .toggler-line { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 8.5rem 0 0; }
+    .hero-title {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.08; margin-bottom: 1.2rem;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-dark); }
+    .hero-lead { font-size: 1.08rem; color: var(--ink-70); max-width: 470px; margin-bottom: 2rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
+    .hero-stats { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+    .hero-stats div { display: flex; flex-direction: column; font-size: .85rem; color: var(--ink-70); }
+    .hero-stats span { font-family: var(--font-display); font-size: 1.8rem; color: var(--ink); }
+    .hero-img { border-radius: var(--radius); box-shadow: 0 30px 60px -20px rgba(36,31,27,.3); }
+
+    /* ---------- Services ---------- */
+    .section-services { background: var(--gold-tint); }
+    .service-card {
+      background: var(--surface); padding: 2.2rem 1.8rem;
+      border-radius: var(--radius); height: 100%;
+      border: 1px solid rgba(36,31,27,.06);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 25px 45px -20px rgba(36,31,27,.22); }
+    .service-icon {
+      width: 52px; height: 52px; background: var(--forest); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 1.2rem;
+    }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; margin-bottom: .5rem; }
+    .service-card p { color: var(--ink-70); font-size: .93rem; margin: 0; }
+
+    /* ---------- Gallery ---------- */
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 170px; gap: .9rem; }
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+    .g-tall { grid-row: span 2; }
+
+    /* ---------- Pricing ---------- */
+    .section-pricing { background: var(--gold-tint); }
+    .price-card {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 2.3rem 1.8rem; height: 100%;
+      border: 1px solid rgba(36,31,27,.08); position: relative;
+      display: flex; flex-direction: column;
+    }
+    .price-card.featured { background: var(--forest); color: #fff; box-shadow: 0 30px 55px -20px rgba(63,90,80,.45); }
+    .price-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: #fff; font-size: .72rem; font-weight: 600;
+      letter-spacing: .05em; padding: .35rem .9rem; border-radius: 20px; text-transform: uppercase;
+    }
+    .price-name { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: .3rem; }
+    .price-value { font-family: var(--font-display); font-size: 2rem; font-weight: 500; margin-bottom: .5rem; }
+    .price-value span { font-size: .95rem; font-family: var(--font-body); opacity: .65; }
+    .price-desc { font-size: .9rem; opacity: .75; margin-bottom: 1.2rem; }
+    .price-card ul { list-style: none; padding: 0; margin-bottom: 1.6rem; flex-grow: 1; }
+    .price-card li { font-size: .9rem; margin-bottom: .6rem; display: flex; gap: .55rem; align-items: flex-start; }
+    .price-card li i { color: var(--gold); }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--ink); color: rgba(255,255,255,.65); padding: 4rem 0 1.5rem; font-size: .92rem; }
+    .site-footer a { color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s ease; }
+    .site-footer a:hover { color: var(--gold); }
+    .footer-brand { font-family: var(--font-display); color: #fff; font-size: 1.6rem; font-weight: 500; margin-bottom: .8rem; }
+    .footer-heading { color: #fff; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.1rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .7rem; }
+    .social-links { display: flex; gap: .8rem; }
+    .social-links a {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; transition: all .25s ease;
+    }
+    .social-links a:hover { background: var(--gold); border-color: var(--gold); }
+    .footer-rule { border-color: rgba(255,255,255,.12); margin: 2.6rem 0 1.4rem; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 991.98px) {
+      .navbar-collapse { background: var(--surface); margin-top: 1rem; padding: 1.2rem; border-radius: var(--radius); box-shadow: 0 15px 30px -10px rgba(36,31,27,.15); }
+      .nav-link { margin: .3rem 0; }
+      .btn-nav-cta { display: inline-block; margin-top: .5rem; }
+      .hero { padding-top: 7.5rem; text-align: center; }
+      .hero-lead, .hero-actions, .hero-stats { margin-left: auto; margin-right: auto; justify-content: center; }
+      .hero-img { margin-top: 2.5rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 575.98px) {
+      section { padding: 4rem 0; }
+      .gallery-grid { grid-auto-rows: 140px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#home">TRISTERS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+        <span class="toggler-line"></span>
+        <span class="toggler-line"></span>
+        <span class="toggler-line"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="btn btn-nav-cta" href="mailto:enquiry@tristers.in">Get Started</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <p class="eyebrow">EVENT MANAGEMENT &amp; DESIGN</p>
+          <h1 class="hero-title">Events that feel <br><em>effortless.</em></h1>
+          <p class="hero-lead">TRISTERS plans and produces corporate events, concerts, parties and more — so you can enjoy the moment, not manage it.</p>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-green">View Packages</a>
+            <a href="#gallery" class="btn btn-outline-dark-custom">See Our Work</a>
+          </div>
+          <div class="hero-stats">
+            <div><span>250+</span>Events Delivered</div>
+            <div><span>8</span>Years Experience</div>
+            <div><span>95%</span>Happy Clients</div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <!-- IMG: hero image (elegant decorated event venue) -->
+          <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format&fit=crop" alt="Beautifully decorated event venue" class="hero-img">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <!-- IMG: about image (team planning) -->
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&auto=format&fit=crop" alt="Event planners at work" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-7">
+          <p class="eyebrow">ABOUT TRISTERS</p>
+          <h2 class="section-title">We handle the details, <br>you enjoy the <em>day.</em></h2>
+          <p class="section-text">From the first planning call to the last guest leaving, our team manages vendors, timelines, design and everything in between — for events of every size.</p>
+          <p class="section-text">Tell us your vision and we'll turn it into a well-planned, stress-free experience.</p>
+          <a href="#contact" class="btn btn-green">Talk To Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services" class="section-services">
+    <div class="container">
+      <div class="text-center section-head">
+        <p class="eyebrow">WHAT WE DO</p>
+        <h2 class="section-title">Events we manage</h2>
+        <p class="section-text mx-auto" style="max-width:620px">Pick one service or hand us the whole event — we flex to fit your needs.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-briefcase"></i></div>
+            <h3>Corporate Events</h3>
+            <p>Conferences, product launches and team offsites run on time, on brand and on budget.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-music-note-beamed"></i></div>
+            <h3>Concerts &amp; Festivals</h3>
+            <p>Production, vendor logistics and crowd management for large-scale live events.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-cake2"></i></div>
+            <h3>Private Parties</h3>
+            <p>Birthdays, anniversaries and milestone celebrations designed around what you love.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-trophy"></i></div>
+            <h3>Awards &amp; Galas</h3>
+            <p>Formal dinners, award nights and charity galas with polished staging and flow.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-palette"></i></div>
+            <h3>Decor &amp; Design</h3>
+            <p>Florals, lighting and styling that turn any venue into a beautiful space.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-clipboard-check"></i></div>
+            <h3>Day Coordination</h3>
+            <p>Planned it yourself? We run the day so you don't have to worry about a thing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section id="gallery">
+    <div class="container">
+      <div class="text-center section-head">
+        <p class="eyebrow">OUR WORK</p>
+        <h2 class="section-title">Moments we've created</h2>
+      </div>
+      <div class="gallery-grid">
+        <!-- IMG: replace each src with your own event photos -->
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80&auto=format&fit=crop" alt="Event decor" class="g-tall">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80&auto=format&fit=crop" alt="Conference stage">
+        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&auto=format&fit=crop" alt="Concert crowd">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80&auto=format&fit=crop" alt="Party celebration" class="g-tall">
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80&auto=format&fit=crop" alt="Table setting">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80&auto=format&fit=crop" alt="Guests enjoying">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section id="pricing" class="section-pricing">
+    <div class="container">
+      <div class="text-center section-head">
+        <p class="eyebrow">PACKAGES</p>
+        <h2 class="section-title">Simple, honest pricing</h2>
+        <p class="section-text mx-auto" style="max-width:620px">These are starting points — final quotes are always scoped to your event.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6">
+          <div class="price-card">
+            <p class="price-name">Package 1</p>
+            <p class="price-value">₹0<span>/event</span></p>
+            <p class="price-desc">Write your package description here.</p>
+            <ul>
+              <li><i class="bi bi-check2"></i> Feature 1</li>
+              <li><i class="bi bi-check2"></i> Feature 2</li>
+              <li><i class="bi bi-check2"></i> Feature 3</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark-custom w-100">Enquire</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="price-card featured">
+            <p class="price-badge">Most Popular</p>
+            <p class="price-name">Package 2</p>
+            <p class="price-value">₹0<span>/event</span></p>
+            <p class="price-desc">Write your package description here.</p>
+            <ul>
+              <li><i class="bi bi-check2"></i> Feature 1</li>
+              <li><i class="bi bi-check2"></i> Feature 2</li>
+              <li><i class="bi bi-check2"></i> Feature 3</li>
+              <li><i class="bi bi-check2"></i> Feature 4</li>
+            </ul>
+            <a href="#contact" class="btn btn-green w-100">Enquire</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="price-card">
+            <p class="price-name">Package 3</p>
+            <p class="price-value">₹0<span>/event</span></p>
+            <p class="price-desc">Write your package description here.</p>
+            <ul>
+              <li><i class="bi bi-check2"></i> Feature 1</li>
+              <li><i class="bi bi-check2"></i> Feature 2</li>
+              <li><i class="bi bi-check2"></i> Feature 3</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark-custom w-100">Enquire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="text-center section-head">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2 class="section-title">Let's plan your <em>event</em></h2>
+        <p class="section-text mx-auto" style="max-width:620px">Send us a message and we'll get back to you within 24 hours.</p>
+      </div>
+      <div class="row justify-content-center g-5">
+        <!-- LEFT: Contact Info -->
+        <div class="col-lg-5">
+          <div class="bg-white rounded shadow-sm p-4 h-100">
+            <p class="eyebrow mb-2">CONTACT INFO</p>
+            <h3 class="section-title fs-2">Reach us anytime</h3>
+            <p class="section-text">Have an event in mind? Call, email or visit us — we'd love to help you plan it.</p>
+            <hr>
+            <ul class="list-unstyled d-flex flex-column gap-4 mt-4">
+              <li class="d-flex gap-3">
+                <i class="bi bi-person fs-4 text-success"></i>
+                <div>
+                  <p class="small text-muted mb-0">Contact Person</p>
+                  <p class="mb-0 fw-semibold">Gowtham</p>
+                </div>
+              </li>
+              <li class="d-flex gap-3">
+                <i class="bi bi-telephone fs-4 text-success"></i>
+                <div>
+                  <p class="small text-muted mb-0">Phone</p>
+                  <p class="mb-0 fw-semibold"><a href="tel:+919790877670" class="text-decoration-none text-reset">+91 97908 77670</a></p>
+                </div>
+              </li>
+              <li class="d-flex gap-3">
+                <i class="bi bi-envelope fs-4 text-success"></i>
+                <div>
+                  <p class="small text-muted mb-0">Email</p>
+                  <p class="mb-0 fw-semibold"><a href="mailto:enquiry@tristers.in" class="text-decoration-none text-reset">enquiry@tristers.in</a></p>
+                </div>
+              </li>
+              <li class="d-flex gap-3">
+                <i class="bi bi-geo-alt fs-4 text-success"></i>
+                <div>
+                  <p class="small text-muted mb-0">Location</p>
+                  <p class="mb-0 fw-semibold">Ramapuram, Chennai, Tamil Nadu</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- RIGHT: Contact Form -->
+        <div class="col-lg-7">
+          <form action="#" method="post" class="bg-white p-4 rounded shadow-sm h-100">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label small">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Full name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label small">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="you@email.com" required>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label small">Phone</label>
+                <input type="tel" class="form-control" id="phone" placeholder="+91 XXXXX XXXXX">
+              </div>
+              <div class="col-md-6">
+                <label for="event" class="form-label small">Type of Event</label>
+                <select class="form-select" id="event">
+                  <option selected>Corporate Event</option>
+                  <option>Concert / Festival</option>
+                  <option>Private Party</option>
+                  <option>Awards / Gala</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="msg" class="form-label small">Tell us about your event</label>
+                <textarea class="form-control" id="msg" rows="5" placeholder="Date, guest count, location..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-green w-100">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <p class="footer-brand">TRISTERS</p>
+          <p>Event management &amp; design for corporate events, concerts, parties and celebrations.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <p class="footer-heading">Explore</p>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-5">
+          <p class="footer-heading">Contact</p>
+          <ul class="footer-links">
+            <li><i class="bi bi-person me-2"></i>Gowtham (Contact Person)</li>
+            <li><i class="bi bi-telephone me-2"></i><a href="tel:+919790877670">+91 97908 77670</a></li>
+            <li><i class="bi bi-envelope me-2"></i><a href="mailto:enquiry@tristers.in">enquiry@tristers.in</a></li>
+            <li><i class="bi bi-geo-alt me-2"></i>Ramapuram, Chennai, Tamil Nadu</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-rule">
+      <p class="mb-0 text-center">&copy; <span id="year"></span> TRISTERS Events. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Sticky navbar background on scroll
+    window.addEventListener('scroll', function () {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll('#navMenu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        const menu = document.getElementById('navMenu');
+        if (menu.classList.contains('show')) {
+          bootstrap.Collapse.getOrCreateInstance(menu).hide();
+        }
+      });
+    });
+
+    // Auto-update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
