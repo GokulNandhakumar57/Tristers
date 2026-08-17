@@ -16,184 +16,65 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    /* ============================================================
-       TRISTERS - OPTIMIZED EVENT WEBSITE
-       Single font: Work Sans throughout.
-       Replace images by searching for "IMG:" comments.
-       ============================================================ */
-
     :root {
-      --bg:        #F3EEE4;
-      --surface:   #FCF9F4;
-      --ink:       #221C17;
-      --ink-70:    rgba(34,28,23,.7);
-      --gold:      #C08A3E;
-      --gold-dark: #96692A;
-      --gold-tint: #EADFC8;
-      --forest:    #3B5A4C;
-      --forest-dark:#253C32;
-      --font:      'Work Sans', sans-serif;
-      --radius:    6px;
+      --bg: #F3EEE4; --surface: #FCF9F4; --ink: #221C17;
+      --ink-70: rgba(34,28,23,.7); --gold: #C08A3E; --gold-dark: #96692A;
+      --gold-tint: #EADFC8; --forest: #3B5A4C; --forest-dark: #253C32;
+      --font: 'Work Sans', sans-serif; --radius: 6px;
     }
-
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font);
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.65;
-      margin: 0;
-    }
+    body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.65; margin: 0; }
     img { max-width: 100%; height: auto; display: block; }
     section { padding: 5rem 0; }
 
-    .eyebrow {
-      font-size: .78rem; font-weight: 600;
-      letter-spacing: .18em; text-transform: uppercase;
-      color: var(--gold-dark); margin-bottom: .9rem;
-    }
-    .section-title {
-      font-weight: 500; font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-      line-height: 1.15; margin-bottom: 1rem;
-    }
+    .eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .9rem; }
+    .section-title { font-weight: 500; font-size: clamp(1.8rem, 3.2vw, 2.5rem); line-height: 1.15; margin-bottom: 1rem; }
     .section-title em { font-style: italic; color: var(--gold-dark); }
     .section-text { color: var(--ink-70); font-size: 1rem; }
     .section-head { margin-bottom: 2.6rem; }
 
-    /* ---------- Buttons ---------- */
-    .btn-green {
-      background: var(--forest); border: 1px solid var(--forest);
-      color: #fff; padding: .8rem 1.8rem; border-radius: var(--radius);
-      font-weight: 500; transition: all .25s ease; display: inline-block;
-      text-decoration: none;
-    }
-    .btn-green:hover {
-      background: var(--forest-dark); border-color: var(--forest-dark); color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-outline-custom {
-      background: transparent; border: 1px solid var(--ink-70);
-      color: var(--ink); padding: .8rem 1.8rem; border-radius: var(--radius);
-      font-weight: 500; transition: all .25s ease; display: inline-block;
-      text-decoration: none;
-    }
+    .btn-green { background: var(--forest); border: 1px solid var(--forest); color: #fff; padding: .8rem 1.8rem; border-radius: var(--radius); font-weight: 500; transition: all .25s ease; display: inline-block; text-decoration: none; }
+    .btn-green:hover { background: var(--forest-dark); border-color: var(--forest-dark); color: #fff; transform: translateY(-2px); }
+    .btn-outline-custom { background: transparent; border: 1px solid var(--ink-70); color: var(--ink); padding: .8rem 1.8rem; border-radius: var(--radius); font-weight: 500; transition: all .25s ease; display: inline-block; text-decoration: none; }
     .btn-outline-custom:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
 
-    /* ---------- Navbar ---------- */
     #mainNav { padding: 1.2rem 0; transition: all .35s ease; }
-    #mainNav.scrolled {
-      background: rgba(242,237,228,.92);
-      backdrop-filter: blur(8px);
-      padding: .8rem 0;
-      box-shadow: 0 4px 24px rgba(36,31,27,.06);
-    }
-    .navbar-brand {
-      font-weight: 600; font-size: 1.45rem;
-      letter-spacing: .04em; color: var(--ink) !important;
-    }
+    #mainNav.scrolled { background: rgba(242,237,228,.92); backdrop-filter: blur(8px); padding: .8rem 0; box-shadow: 0 4px 24px rgba(36,31,27,.06); }
+    .navbar-brand { font-weight: 600; font-size: 1.45rem; letter-spacing: .04em; color: var(--ink) !important; }
     .nav-link { font-size: .92rem; font-weight: 500; color: var(--ink) !important; margin: 0 .7rem; }
-    .btn-nav-cta {
-      background: var(--gold); color: #fff !important;
-      padding: .5rem 1.2rem; border-radius: var(--radius);
-      font-size: .88rem; font-weight: 500; margin-left: .5rem;
-      transition: background .25s ease;
-    }
+    .btn-nav-cta { background: var(--gold); color: #fff !important; padding: .5rem 1.2rem; border-radius: var(--radius); font-size: .88rem; font-weight: 500; margin-left: .5rem; transition: background .25s ease; }
     .btn-nav-cta:hover { background: var(--gold-dark); }
     .navbar-toggler { border: none; box-shadow: none !important; }
     .toggler-line { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; }
 
-    /* ---------- Hero ---------- */
     .hero { padding: 8.5rem 0 0; }
-    .hero-title {
-      font-weight: 500; font-size: clamp(2.4rem, 5vw, 3.8rem);
-      line-height: 1.08; margin-bottom: 1.2rem;
-    }
+    .hero-title { font-weight: 500; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.08; margin-bottom: 1.2rem; }
     .hero-title em { font-style: italic; color: var(--gold-dark); }
     .hero-lead { font-size: 1.08rem; color: var(--ink-70); max-width: 470px; margin-bottom: 2rem; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
     .hero-stats { display: flex; gap: 2.4rem; flex-wrap: wrap; }
     .hero-stats div { display: flex; flex-direction: column; font-size: .85rem; color: var(--ink-70); }
     .hero-stats span { font-size: 1.8rem; color: var(--ink); font-weight: 600; }
-    .hero-img {
-      border-radius: var(--radius);
-      box-shadow: 0 30px 60px -20px rgba(36,31,27,.3);
-      width: 100%; height: auto; object-fit: cover;
-    }
+    .hero-img { border-radius: var(--radius); box-shadow: 0 30px 60px -20px rgba(36,31,27,.3); width: 100%; height: auto; object-fit: cover; }
 
-    /* ---------- Planning / What We Do ---------- */
-    .planning-phase {
-      background: var(--surface); border-radius: var(--radius);
-      padding: 2rem 1.8rem; height: 100%;
-      border: 1px solid rgba(36,31,27,.06);
-    }
-    .planning-phase h3 {
-      font-weight: 600; font-size: 1.15rem; margin-bottom: 1rem;
-      color: var(--forest);
-    }
-    .planning-phase ul { list-style: none; padding: 0; margin: 0; }
-    .planning-phase li {
-      padding: .45rem 0; font-size: .93rem; color: var(--ink-70);
-      border-bottom: 1px solid rgba(36,31,27,.05);
-    }
-    .planning-phase li:last-child { border-bottom: none; }
-    .planning-phase li::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; margin-right: .6rem; vertical-align: middle; }
-
-    /* ---------- Services ---------- */
     .section-services { background: var(--gold-tint); }
-    .service-card {
-      background: var(--surface); padding: 2.2rem 1.8rem;
-      border-radius: var(--radius); height: 100%;
-      border: 1px solid rgba(36,31,27,.06);
-      transition: transform .3s ease, box-shadow .3s ease;
-      text-align: center;
-    }
+    .service-card { background: var(--surface); padding: 2.2rem 1.8rem; border-radius: var(--radius); height: 100%; border: 1px solid rgba(36,31,27,.06); transition: transform .3s ease, box-shadow .3s ease; text-align: center; }
     .service-card:hover { transform: translateY(-5px); box-shadow: 0 25px 45px -20px rgba(36,31,27,.22); }
-    .service-icon {
-      width: 52px; height: 52px; background: var(--forest); color: #fff;
-      border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
-      font-size: 1.25rem; margin-bottom: 1.2rem;
-    }
+    .service-icon { width: 52px; height: 52px; background: var(--forest); color: #fff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.2rem; }
     .service-card h3 { font-weight: 600; font-size: 1.15rem; margin-bottom: .5rem; }
     .service-card p { color: var(--ink-70); font-size: .93rem; margin: 0; }
 
-    /* ---------- Gallery ---------- */
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 170px; gap: .9rem;
-    }
-    .gallery-grid img {
-      width: 100%; height: 100%; object-fit: cover;
-      border-radius: var(--radius);
-      transition: transform .4s ease;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 170px; gap: .9rem; }
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); transition: transform .4s ease; }
     .gallery-grid img:hover { transform: scale(1.02); }
-    .g-tall { grid-row: span 2; }
 
-    /* ---------- Pricing ---------- */
     .section-pricing { background: var(--gold-tint); }
-    .price-card {
-      background: var(--surface); border-radius: var(--radius);
-      padding: 2.3rem 1.8rem; height: 100%;
-      border: 2px solid rgba(36,31,27,.06); position: relative;
-      display: flex; flex-direction: column;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
+    .price-card { background: var(--surface); border-radius: var(--radius); padding: 2.3rem 1.8rem; height: 100%; border: 2px solid rgba(36,31,27,.06); position: relative; display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease; }
     .price-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(36,31,27,.18); }
-    .price-card.featured {
-      background: linear-gradient(135deg, var(--forest), var(--forest-dark));
-      color: #fff;
-      border-color: var(--gold);
-      transform: scale(1.04);
-      box-shadow: 0 30px 55px -20px rgba(63,90,80,.5);
-    }
+    .price-card.featured { background: linear-gradient(135deg, var(--forest), var(--forest-dark)); color: #fff; border-color: var(--gold); transform: scale(1.04); box-shadow: 0 30px 55px -20px rgba(63,90,80,.5); }
     .price-card.featured:hover { transform: scale(1.04) translateY(-4px); }
-    .price-badge {
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: var(--gold); color: #fff; font-size: .72rem; font-weight: 600;
-      letter-spacing: .05em; padding: .35rem .9rem; border-radius: 20px; text-transform: uppercase;
-    }
+    .price-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #fff; font-size: .72rem; font-weight: 600; letter-spacing: .05em; padding: .35rem .9rem; border-radius: 20px; text-transform: uppercase; }
     .price-name { font-weight: 600; font-size: 1.3rem; margin-bottom: .3rem; }
     .price-value { font-size: 2rem; font-weight: 600; margin-bottom: .5rem; }
     .price-value span { font-size: .9rem; font-weight: 400; opacity: .65; }
@@ -201,9 +82,7 @@
     .price-card ul { list-style: none; padding: 0; margin-bottom: 1.6rem; flex-grow: 1; }
     .price-card li { font-size: .88rem; margin-bottom: .55rem; display: flex; gap: .55rem; align-items: flex-start; }
     .price-card li i { color: var(--gold); flex-shrink: 0; margin-top: .15rem; }
-    .price-card.featured li i { color: var(--gold); }
 
-    /* ---------- Footer ---------- */
     .site-footer { background: var(--ink); color: rgba(255,255,255,.65); padding: 4rem 0 1.5rem; font-size: .92rem; }
     .site-footer a { color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s ease; }
     .site-footer a:hover { color: var(--gold); }
@@ -211,27 +90,16 @@
     .footer-heading { color: #fff; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.1rem; }
     .footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .7rem; }
     .social-links { display: flex; gap: .8rem; }
-    .social-links a {
-      width: 38px; height: 38px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.18);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; transition: all .25s ease;
-    }
+    .social-links a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center; color: #fff; transition: all .25s ease; }
     .social-links a:hover { background: var(--gold); border-color: var(--gold); }
     .footer-rule { border-color: rgba(255,255,255,.12); margin: 2.6rem 0 1.4rem; }
 
-    /* ---------- Responsive ---------- */
     @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background: var(--surface); margin-top: 1rem; padding: 1.2rem;
-        border-radius: var(--radius); box-shadow: 0 15px 30px -10px rgba(36,31,27,.15);
-      }
+      .navbar-collapse { background: var(--surface); margin-top: 1rem; padding: 1.2rem; border-radius: var(--radius); box-shadow: 0 15px 30px -10px rgba(36,31,27,.15); }
       .nav-link { margin: .3rem 0; }
       .btn-nav-cta { display: inline-block; margin-top: .5rem; }
       .hero { padding-top: 7.5rem; text-align: center; }
-      .hero-lead, .hero-actions, .hero-stats {
-        margin-left: auto; margin-right: auto; justify-content: center;
-      }
+      .hero-lead, .hero-actions, .hero-stats { margin-left: auto; margin-right: auto; justify-content: center; }
       .hero-img { margin-top: 2.5rem; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .price-card.featured { transform: none; }
@@ -246,20 +114,17 @@
 
 <body>
 
-  <!-- ================= NAVBAR ================= -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="#home">TRISTERS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
-        <span class="toggler-line"></span>
-        <span class="toggler-line"></span>
-        <span class="toggler-line"></span>
+        <span class="toggler-line"></span><span class="toggler-line"></span><span class="toggler-line"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#planning">What We Do</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
@@ -269,7 +134,7 @@
     </div>
   </nav>
 
-  <!-- ================= HERO ================= -->
+  <!-- HERO -->
   <header id="home" class="hero">
     <div class="container">
       <div class="row align-items-center">
@@ -279,7 +144,7 @@
           <p class="hero-lead">TRISTERS plans and produces corporate events, private parties and more — so you can enjoy the moment, not manage it.</p>
           <div class="hero-actions">
             <a href="#pricing" class="btn btn-green">View Packages</a>
-            <a href="#planning" class="btn btn-outline-custom">What We Do</a>
+            <a href="#services" class="btn btn-outline-custom">Our Services</a>
           </div>
           <div class="hero-stats">
             <div><span>0</span>Events Delivered</div>
@@ -288,19 +153,17 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <!-- IMG: hero image -->
           <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format&fit=crop" alt="Beautifully decorated event venue" class="hero-img">
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ================= ABOUT ================= -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-5">
-          <!-- IMG: about image -->
           <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&auto=format&fit=crop" alt="Event planners at work" class="img-fluid rounded">
         </div>
         <div class="col-lg-7">
@@ -314,59 +177,8 @@
     </div>
   </section>
 
-  <!-- ================= PLANNING / WHAT WE DO ================= -->
-  <section id="planning" class="section-services">
-    <div class="container">
-      <div class="text-center section-head">
-        <p class="eyebrow">WHAT WE DO</p>
-        <h2 class="section-title">Our end-to-end process</h2>
-        <p class="section-text mx-auto" style="max-width:620px">From the first idea to the final farewell — we manage every stage of your event.</p>
-      </div>
-      <div class="row g-4">
-        <!-- Phase 1 -->
-        <div class="col-md-4">
-          <div class="planning-phase">
-            <h3><i class="bi bi-lightbulb me-2"></i>Planning</h3>
-            <ul>
-              <li>Conceptualize</li>
-              <li>Designing</li>
-              <li>Artist Management</li>
-              <li>Theme</li>
-              <li>Decor</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Phase 2 -->
-        <div class="col-md-4">
-          <div class="planning-phase">
-            <h3><i class="bi bi-gear me-2"></i>Execution</h3>
-            <ul>
-              <li>Venue &amp; Stage</li>
-              <li>Seating Arrangements</li>
-              <li>Lighting &amp; Audio System</li>
-              <li>Photography &amp; Videography</li>
-              <li>WOW Acts</li>
-              <li>Special Performances</li>
-              <li>Food</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Phase 3 -->
-        <div class="col-md-4">
-          <div class="planning-phase">
-            <h3><i class="bi bi-check-circle me-2"></i>Closure</h3>
-            <ul>
-              <li>Timely Collateral Delivery</li>
-              <li>Event Report</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SERVICES ================= -->
-  <section id="services">
+  <!-- SERVICES -->
+  <section id="services" class="section-services">
     <div class="container">
       <div class="text-center section-head">
         <p class="eyebrow">SERVICES</p>
@@ -420,15 +232,14 @@
     </div>
   </section>
 
-  <!-- ================= GALLERY ================= -->
-  <section id="gallery" class="section-services">
+  <!-- GALLERY -->
+  <section id="gallery">
     <div class="container">
       <div class="text-center section-head">
         <p class="eyebrow">WHAT WE DO</p>
         <h2 class="section-title">Moments we create</h2>
       </div>
       <div class="gallery-grid">
-        <!-- IMG: replace each src with your own event photos -->
         <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80&auto=format&fit=crop" alt="Event decor">
         <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80&auto=format&fit=crop" alt="Conference stage">
         <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&auto=format&fit=crop" alt="Concert crowd">
@@ -439,8 +250,8 @@
     </div>
   </section>
 
-  <!-- ================= PRICING ================= -->
-  <section id="pricing">
+  <!-- PRICING -->
+  <section id="pricing" class="section-pricing">
     <div class="container">
       <div class="text-center section-head">
         <p class="eyebrow">PACKAGES</p>
@@ -448,7 +259,6 @@
         <p class="section-text mx-auto" style="max-width:620px">These are starting points — final quotes are always scoped to your event.</p>
       </div>
       <div class="row g-4 justify-content-center">
-        <!-- Package 2 (Featured - shown first) -->
         <div class="col-lg-4 col-md-6">
           <div class="price-card featured">
             <p class="price-badge">Most Popular</p>
@@ -464,7 +274,6 @@
             <a href="#contact" class="btn btn-green w-100">Enquire</a>
           </div>
         </div>
-        <!-- Package 1 -->
         <div class="col-lg-4 col-md-6">
           <div class="price-card">
             <p class="price-name">Package 1</p>
@@ -478,7 +287,6 @@
             <a href="#contact" class="btn btn-outline-custom w-100">Enquire</a>
           </div>
         </div>
-        <!-- Package 3 -->
         <div class="col-lg-4 col-md-6">
           <div class="price-card">
             <p class="price-name">Package 3</p>
@@ -500,8 +308,8 @@
     </div>
   </section>
 
-  <!-- ================= CONTACT ================= -->
-  <section id="contact" class="section-services">
+  <!-- CONTACT -->
+  <section id="contact">
     <div class="container">
       <div class="text-center section-head">
         <p class="eyebrow">GET IN TOUCH</p>
@@ -509,7 +317,6 @@
         <p class="section-text mx-auto" style="max-width:620px">Send us a message and we'll get back to you within 24 hours.</p>
       </div>
       <div class="row justify-content-center g-5">
-        <!-- LEFT: Contact Info -->
         <div class="col-lg-5">
           <div class="bg-white rounded shadow-sm p-4 h-100">
             <p class="eyebrow mb-2">CONTACT INFO</p>
@@ -519,51 +326,29 @@
             <ul class="list-unstyled d-flex flex-column gap-4 mt-4">
               <li class="d-flex gap-3">
                 <i class="bi bi-person fs-4 text-success"></i>
-                <div>
-                  <p class="small text-muted mb-0">Contact Person</p>
-                  <p class="mb-0 fw-semibold">Gowtham</p>
-                </div>
+                <div><p class="small text-muted mb-0">Contact Person</p><p class="mb-0 fw-semibold">Gowtham</p></div>
               </li>
               <li class="d-flex gap-3">
                 <i class="bi bi-telephone fs-4 text-success"></i>
-                <div>
-                  <p class="small text-muted mb-0">Phone</p>
-                  <p class="mb-0 fw-semibold"><a href="tel:+919790877670" class="text-decoration-none text-reset">+91 97908 77670</a></p>
-                </div>
+                <div><p class="small text-muted mb-0">Phone</p><p class="mb-0 fw-semibold"><a href="tel:+919790877670" class="text-decoration-none text-reset">+91 97908 77670</a></p></div>
               </li>
               <li class="d-flex gap-3">
                 <i class="bi bi-envelope fs-4 text-success"></i>
-                <div>
-                  <p class="small text-muted mb-0">Email</p>
-                  <p class="mb-0 fw-semibold"><a href="mailto:enquiry@tristers.in" class="text-decoration-none text-reset">enquiry@tristers.in</a></p>
-                </div>
+                <div><p class="small text-muted mb-0">Email</p><p class="mb-0 fw-semibold"><a href="mailto:enquiry@tristers.in" class="text-decoration-none text-reset">enquiry@tristers.in</a></p></div>
               </li>
               <li class="d-flex gap-3">
                 <i class="bi bi-geo-alt fs-4 text-success"></i>
-                <div>
-                  <p class="small text-muted mb-0">Location</p>
-                  <p class="mb-0 fw-semibold">Ramapuram, Chennai, Tamil Nadu</p>
-                </div>
+                <div><p class="small text-muted mb-0">Location</p><p class="mb-0 fw-semibold">Ramapuram, Chennai, Tamil Nadu</p></div>
               </li>
             </ul>
           </div>
         </div>
-        <!-- RIGHT: Contact Form -->
         <div class="col-lg-7">
           <form action="#" method="post" class="bg-white p-4 rounded shadow-sm h-100">
             <div class="row g-3">
-              <div class="col-md-6">
-                <label for="name" class="form-label small">Your Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Full name" required>
-              </div>
-              <div class="col-md-6">
-                <label for="email" class="form-label small">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="you@email.com" required>
-              </div>
-              <div class="col-md-6">
-                <label for="phone" class="form-label small">Phone</label>
-                <input type="tel" class="form-control" id="phone" placeholder="+91 XXXXX XXXXX">
-              </div>
+              <div class="col-md-6"><label for="name" class="form-label small">Your Name</label><input type="text" class="form-control" id="name" placeholder="Full name" required></div>
+              <div class="col-md-6"><label for="email" class="form-label small">Email</label><input type="email" class="form-control" id="email" placeholder="you@email.com" required></div>
+              <div class="col-md-6"><label for="phone" class="form-label small">Phone</label><input type="tel" class="form-control" id="phone" placeholder="+91 XXXXX XXXXX"></div>
               <div class="col-md-6">
                 <label for="event" class="form-label small">Type of Event</label>
                 <select class="form-select" id="event">
@@ -574,13 +359,8 @@
                   <option>Other</option>
                 </select>
               </div>
-              <div class="col-12">
-                <label for="msg" class="form-label small">Tell us about your event</label>
-                <textarea class="form-control" id="msg" rows="5" placeholder="Date, guest count, location..."></textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-green w-100">Send Message</button>
-              </div>
+              <div class="col-12"><label for="msg" class="form-label small">Tell us about your event</label><textarea class="form-control" id="msg" rows="5" placeholder="Date, guest count, location..."></textarea></div>
+              <div class="col-12"><button type="submit" class="btn btn-green w-100">Send Message</button></div>
             </div>
           </form>
         </div>
@@ -588,7 +368,7 @@
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="row gy-4">
@@ -607,7 +387,6 @@
           <ul class="footer-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#planning">What We Do</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#pricing">Pricing</a></li>
@@ -628,25 +407,17 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Sticky navbar
     window.addEventListener('scroll', function () {
       document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
     });
-
-    // Close mobile menu on link click
     document.querySelectorAll('#navMenu a').forEach(function (link) {
       link.addEventListener('click', function () {
         var menu = document.getElementById('navMenu');
-        if (menu.classList.contains('show')) {
-          bootstrap.Collapse.getOrCreateInstance(menu).hide();
-        }
+        if (menu.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(menu).hide();
       });
     });
-
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
